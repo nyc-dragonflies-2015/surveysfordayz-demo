@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
   end
 
   def form
+    @survey = Survey.find(params[:data])
     render partial: 'surveys/question', locals: { question: Question.new }
   end
 
