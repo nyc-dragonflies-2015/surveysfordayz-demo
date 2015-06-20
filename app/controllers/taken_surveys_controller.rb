@@ -1,0 +1,3 @@
+class TakenSurveyController < ApplicationController
+
+end
