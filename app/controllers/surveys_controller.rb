@@ -16,7 +16,7 @@ class SurveysController < ApplicationController
   end
 
   def show
-
+    @survey = Survey.find_by(id: params[:id])
   end
 
   private
