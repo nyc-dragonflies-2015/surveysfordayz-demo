@@ -1,4 +1,4 @@
-<%= form_for [@survey, question] do |f| %>
+<%= form_for [@survey, question], url: survey_questions_path(@survey.id) do |f| %>
   <%= f.label :question %>  <%= f.text_field :text %>  <%= f.submit "Add question" %>
   <%= f.hidden_field :survey_id, value: @survey.id %>
 <% end %>

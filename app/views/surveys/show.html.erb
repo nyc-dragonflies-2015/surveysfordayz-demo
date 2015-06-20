@@ -1,5 +1,5 @@
 <h1><%= @survey.title %></h1>
-<%= button_to "Add a question", '/', id: 'add-question', survey_id: @survey.id %>
+<%= link_to "Add a question", questions_form_path, id: 'add-question', survey_id: @survey.id %>
 <br><br>
 
 
