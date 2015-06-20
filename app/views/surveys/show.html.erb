@@ -6,7 +6,10 @@
 <% @survey.questions.each do |question| %>
   <%= question.text %><br>
   <%= render partial: "surveys/choice", locals: {question: question, choice: @choice, survey: @survey } %>
+  Choices: <br>
   <% question.choices.each do |choice| %>
-    <%= choice.text %><br>
+
+   <%= choice.text %><%= render partial: "surveys/delete_choice", locals: {question: question, choice: choice, survey: @survey } %><br>
   <% end %>
+  <br>
 <% end %>

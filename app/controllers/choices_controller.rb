@@ -4,6 +4,11 @@ class ChoicesController < ApplicationController
     redirect_to :back
   end
 
+  def destroy
+    p params
+    render plain: "hi"
+  end
+
   private
     def choice_params
       params.permit(:text, :question_id)

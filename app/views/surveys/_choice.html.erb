@@ -1,5 +1,4 @@
 <%= form_tag action: "create", controller: "choices", method: "post", survey_id: @survey.id do %>
-  <%= label_tag :text %>
   <%= text_field_tag :text %>
   <%= hidden_field_tag :question_id, question.id %>
   <%= submit_tag "create choice" %>

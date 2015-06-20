@@ -1,0 +1,3 @@
+<%= form_tag action: "destroy", controller: "choices", method: "delete", survey_id: @survey.id, id: choice.id do %>
+  <%= submit_tag "delete choice" %>
+<% end %>
