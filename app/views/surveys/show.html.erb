@@ -1,8 +1,10 @@
 <h1><%= @survey.title %></h1>
+<%= button_to "Add a question", '/', id: 'add-question', survey_id: @survey.id %>
+<br><br>
 
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <%= render "surveys/question", question: @question %>
-<br>
-
 <% @survey.questions.each do |question| %>
   <%= question.text %><br>
   <%= render partial: "surveys/choice", locals: {question: question, choice: @choice, survey: @survey } %>

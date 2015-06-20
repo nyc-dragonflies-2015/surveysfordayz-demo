@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post '/' => 'sessions#create', as: 'create_session'
   delete '/logout' => 'sessions#destroy', as: 'logout'
 
+  post '/questions/form' => 'questions#form'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

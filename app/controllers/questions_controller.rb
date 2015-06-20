@@ -1,9 +1,12 @@
 class QuestionsController < ApplicationController
   def create
-    binding.pry
     @question = Question.create(question_params)
     @choice = Choice.new
     redirect_to :back #double check this later
+  end
+
+  def form
+    render partial: 'surveys/question', locals: { question: Question.new }
   end
 
   private
