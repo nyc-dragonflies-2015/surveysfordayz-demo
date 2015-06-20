@@ -1,4 +1,12 @@
 <h1><%= @survey.title %></h1>
 
 <%= render "surveys/question", question: @question %>
+<br>
 
+<% @survey.questions.each do |question| %>
+  <%= question.text %><br>
+  <%= render partial: "surveys/choice", locals: {question: question, choice: @choice, survey: @survey } %>
+  <% question.choices.each do |choice| %>
+    <%= choice.text %><br>
+  <% end %>
+<% end %>

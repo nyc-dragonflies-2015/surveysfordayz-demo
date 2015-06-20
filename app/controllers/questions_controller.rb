@@ -1,10 +1,9 @@
 class QuestionsController < ApplicationController
   def create
-    @question = Question.create(question_params)
     binding.pry
-    # @survey = Survey.find(params[:survey_id])
-    # @survey.questions << @question
-    redirect_to :back
+    @question = Question.create(question_params)
+    @choice = Choice.new
+    redirect_to :back #double check this later
   end
 
   private
