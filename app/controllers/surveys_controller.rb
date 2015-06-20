@@ -1,3 +1,2 @@
-class SurveyController < ApplicationController
-
+class SurveysController < ApplicationController
 end

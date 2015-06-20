@@ -1,3 +1,3 @@
-class QuestionController < ApplicationController
+class QuestionsController < ApplicationController
 
 end
