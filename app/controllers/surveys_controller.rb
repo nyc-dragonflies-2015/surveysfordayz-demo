@@ -25,6 +25,10 @@ class SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
   end
 
+  def results
+    @survey = Survey.find(params[:id])
+  end
+
   def submit
     user = User.find(session[:user_id]) # This must change if the current user can't be identified this way.
     survey = Survey.find(params[:id])

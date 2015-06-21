@@ -1,8 +1,8 @@
 <div class="container">
-  <h2>Hello <% @user.email %></h2>
+  <h2>Welcome!</h2>
 
-  <h3>Surveys Taken:</h3>
-    <%= @user.surveys each do |survey| %>
-      <%= link_to '#{survey.title}', survey %>
-    <% end %>
+  <h3>Survey Results:</h3>
+  <% @user.surveys.each do |survey| %>
+    <%= link_to "#{survey.title}", results_path %>
+  <% end %>
 </div>

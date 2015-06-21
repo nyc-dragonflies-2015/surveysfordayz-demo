@@ -21,9 +21,7 @@ Rails.application.routes.draw do
 
   get '/surveys/:id/take' => 'surveys#take', as: 'take'
   post '/surveys/:id/take' => 'surveys#submit', as: 'submit'
-
-  get '/surveys/:id/take' => 'surveys#take', as: 'take'
-  post '/surveys/:id/take' => 'surveys#submit', as: 'submit'
+  get '/surveys/:id/results' => 'surveys#results', as: 'results'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
