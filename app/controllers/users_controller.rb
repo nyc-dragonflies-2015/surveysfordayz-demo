@@ -2,10 +2,11 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     session[:user_id] = @user.id
-    redirect_to user_path
+    redirect_to login_path
   end
 
   def new
+
   end
 
   def show
@@ -13,9 +14,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    redirect_to user_path
   end
-
   private
 
   def user_params

@@ -8,13 +8,16 @@ Rails.application.routes.draw do
     resources :choices, only: [:create, :destroy]
   end
 
-  get 'users/login' => 'users#login', as: 'login'
-  post '/' => 'sessions#create', as: 'create_session'
+
+  get '/login' => 'sessions#new', as: 'login'
+
+  post '/login' => 'sessions#create'
+
   delete '/logout' => 'sessions#destroy', as: 'logout'
 
   post '/questions/form' => 'questions#form'
 
-  root 'users#login'
+  root 'sessions#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
