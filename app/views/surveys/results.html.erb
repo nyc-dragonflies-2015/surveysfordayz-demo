@@ -1,0 +1,14 @@
+<div class="container">
+  <h1><%= @survey.title %> Survey</h1>
+  <div>Number of times taken: <%= @survey.taken_surveys.count %></div>
+  <div>Number of Questions: <%= @survey.questions.count %></div>
+  <h3>Question Stats:</h3>
+  <div>
+    <% @survey.questions.each do |question| %>
+      <h4><%= question.text %></h4>
+      <% question.choices.each do |choice| %>
+        "<%= choice.text %>" selected <%= UserChoice.count_choice_by_id(choice.id) %> times<br />
+      <% end %>
+    <% end %>
+  </div>
+</div>

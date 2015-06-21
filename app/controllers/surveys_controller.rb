@@ -6,9 +6,8 @@ class SurveysController < ApplicationController
   def create
     @survey = Survey.new(survey_params)
     if @survey.save
-      # uncomment once User stuff is set
-      # @user = User.find_by(id: session[:user_id])
-      # @user.surveys << @survey
+      @user = User.find_by(id: session[:user_id])
+      @user.surveys << @survey
       redirect_to @survey
     else
       redirect_to :back
@@ -19,6 +18,29 @@ class SurveysController < ApplicationController
     @survey = Survey.find_by(id: params[:id])
     @question = Question.new
     @choice = Choice.new
+  end
+
+  def take
+    @survey = Survey.find(params[:id])
+  end
+
+  def results
+    @survey = Survey.find(params[:id])
+  end
+
+  def submit
+    user = User.find(session[:user_id])
+    survey = Survey.find(params[:id])
+
+    taken_survey = TakenSurvey.create(user_id: user.id, survey_id: survey.id)
+
+    params.each do |question, choice_id|
+      if question.include?("question_")
+        taken_survey.user_choices.build(choice_id: choice_id).save
+      end
+    end
+
+    redirect_to user_path(user.id) # Must redirect this to the main page, once we know the route for it.
   end
 
   private
