@@ -6,9 +6,8 @@ class SurveysController < ApplicationController
   def create
     @survey = Survey.new(survey_params)
     if @survey.save
-      # uncomment once User stuff is set
-      # @user = User.find_by(id: session[:user_id])
-      # @user.surveys << @survey
+      @user = User.find_by(id: session[:user_id])
+      @user.surveys << @survey
       redirect_to @survey
     else
       redirect_to :back
@@ -30,7 +29,7 @@ class SurveysController < ApplicationController
   end
 
   def submit
-    user = User.find(session[:user_id]) # This must change if the current user can't be identified this way.
+    user = User.find(session[:user_id])
     survey = Survey.find(params[:id])
 
     taken_survey = TakenSurvey.create(user_id: user.id, survey_id: survey.id)
@@ -41,7 +40,7 @@ class SurveysController < ApplicationController
       end
     end
 
-    redirect_to "/surveys/new" # Must redirect this to the main page, once we know the route for it.
+    redirect_to user_path(user.id) # Must redirect this to the main page, once we know the route for it.
   end
 
   private

@@ -1,8 +1,15 @@
 <div class="container">
-  <h2>Welcome!</h2>
+  <h2>Hello user at <%= @user.email %>!</h2>
+
+  <%= button_to 'Create a Survey', new_survey_path, method: :get %>
 
   <h3>Survey Results:</h3>
   <% @user.surveys.each do |survey| %>
-    <%= link_to "#{survey.title}", results_path %>
+    <%= link_to "#{survey.title}", results_path(survey.id) %>
+  <% end %>
+
+  <h3>Take a Survey:</h3>
+  <% Survey.all.each do |survey| %>
+    <%= link_to "#{survey.title}", take_path(survey.id) %>
   <% end %>
 </div>
