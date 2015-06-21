@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <h1><%= @survey.title %> Survey</h1>
+    <div>
+      <%= form_tag("/surveys/#{@survey.id}/take", method: "post") do %>
+        <% @survey.questions.each do |question| %>
+          <%= question.text %><br />
+
+          <% question.choices.each do |choice| %>
+            <%= radio_button_tag("question_#{question.id}", "#{choice.id}") %>
+            <%= label_tag("question_#{question.id}_#{choice.id}", "#{choice.text}") %>
+          <% end %>
+
+          <br />
+        <% end %>
+
+        <%= submit_tag "submit" %>
+      <% end %>
+    </div>
+  </body>
+</html>
