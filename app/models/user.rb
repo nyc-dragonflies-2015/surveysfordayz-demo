@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
   has_many :surveys
 
 
+  def authenticate(password)
+     self.password == password
+  end
+
 end
