@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
   post '/questions/form' => 'questions#form'
 
-
   root 'users#login'
 
   get '/surveys/:id/take' => 'surveys#take', as: 'take'
