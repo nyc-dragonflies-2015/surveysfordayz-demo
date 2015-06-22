@@ -1,6 +1,7 @@
 class SurveysController < ApplicationController
   def new
     @survey = Survey.new
+    @user_id = session[:user_id]
   end
 
   def create
@@ -18,10 +19,12 @@ class SurveysController < ApplicationController
     @survey = Survey.find_by(id: params[:id])
     @question = Question.new
     @choice = Choice.new
+    @user_id = session[:user_id]
   end
 
   def take
     @survey = Survey.find(params[:id])
+    @user_id = session[:user_id]
   end
 
   def results
@@ -40,7 +43,7 @@ class SurveysController < ApplicationController
       end
     end
 
-    redirect_to user_path(user.id) # Must redirect this to the main page, once we know the route for it.
+    redirect_to user_path(user.id)
   end
 
   private
