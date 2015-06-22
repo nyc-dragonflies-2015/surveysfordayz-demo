@@ -1,9 +1,8 @@
 <h1><%= @survey.title %></h1>
 <%= link_to "Add a question", questions_form_path, id: 'add-question', survey_id: @survey.id %>
-<br><br>
+<br>
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <%= render "surveys/question", question: @question %>
 <% @survey.questions.each do |question| %>
   <%= question.text %><br>
@@ -15,3 +14,4 @@
   <% end %>
   <br>
 <% end %>
+<div><%= button_to 'back', user_path(@user_id), method: :get %></div>
