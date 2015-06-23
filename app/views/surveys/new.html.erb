@@ -1,4 +1,9 @@
-<%= form_for @survey do |f| %>
-  <%= f.label :title %> <%= f.text_field :title %> <%= f.submit "Add title" %>
-<% end %>
-<div><%= button_to 'back', user_path(@user_id), method: :get %></div>
+<div class="container">
+  <h2>Create Survey</h2>
+  <%= form_for @survey do |f| %>
+    <%= f.label :title %> <%= f.text_field :title %> <%= f.submit "Add title" %>
+  <% end %>
+  <br>
+  <br>
+  <div><%= button_to 'back', user_path(@user_id), method: :get %>
+</div>

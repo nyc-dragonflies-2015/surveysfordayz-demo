@@ -1,5 +1,4 @@
-<html>
-  <body>
+<div class="container">
     <h1><%= @survey.title %> Survey</h1>
     <div>
       <%= form_tag("/surveys/#{@survey.id}/take", method: "post") do %>
@@ -18,5 +17,4 @@
       <% end %>
     </div>
     <div><%= button_to 'cancel', user_path(@user_id), method: :get %></div>
-  </body>
-</html>
+</div>

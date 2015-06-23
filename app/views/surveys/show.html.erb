@@ -1,17 +1,20 @@
-<h1><%= @survey.title %></h1>
-<%= link_to "Add a question", questions_form_path, id: 'add-question', survey_id: @survey.id %>
-<br>
+<div class="container">
 
-
-<%= render "surveys/question", question: @question %>
-<% @survey.questions.each do |question| %>
-  <%= question.text %><br>
-  <%= render partial: "surveys/choice", locals: {question: question, choice: @choice, survey: @survey } %>
-  Choices: <br>
-  <% question.choices.each do |choice| %>
-
-   <%= choice.text %><%= render partial: "surveys/delete_choice", locals: {question: question, choice: choice, survey: @survey } %><br>
-  <% end %>
+  <h1><%= @survey.title %></h1>
+  <%= link_to "Add a question", questions_form_path, id: 'add-question', survey_id: @survey.id %>
   <br>
-<% end %>
-<div><%= button_to 'back', user_path(@user_id), method: :get %></div>
+
+
+  <%= render "surveys/question", question: @question %>
+  <% @survey.questions.each do |question| %>
+    <%= question.text %><br>
+    <%= render partial: "surveys/choice", locals: {question: question, choice: @choice, survey: @survey } %>
+    Choices: <br>
+    <% question.choices.each do |choice| %>
+
+     <%= choice.text %><%= render partial: "surveys/delete_choice", locals: {question: question, choice: choice, survey: @survey } %><br>
+    <% end %>
+    <br>
+  <% end %>
+  <div><%= button_to 'back', user_path(@user_id), method: :get %></div>
+</div>

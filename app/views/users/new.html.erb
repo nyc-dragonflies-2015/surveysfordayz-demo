@@ -3,11 +3,12 @@
 
   <h1>Welcome!</h1>
   <h3> Fill out the form below to sign up for a new account: </h3>
-  <%= form_for :user, url: create_session_path do |f| %>
+  <%= form_for @user do |f| %>
     <%= f.label :email %> </br>
     <%= f.text_field :email %>   </br>
     <%= f.label :password %></br>
     <%= f.password_field :password %></br>
+    <br>
     <%= f.submit "Sign Up" %>
   <% end  %>
 
