@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+header {
+  font-family: sans-serif;
+  border-bottom: 2px solid lightgreen;
+  background-color: gray;
+  color: white;
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 96%;
+}
+
+a {
+  text-decoration: none;
+  color: lightgray;
+}
+
+.container {
+  width: 95%;
+  border: 1px solid lightgray;
+  margin: 1% auto;
+  font-family: sans-serif;
+  padding: 5px;
+  padding-bottom: 2%;
+}
+
+.container a {
+  color: navy;
+  text-decoration: underline;
+}

@@ -1,7 +1,6 @@
 <div class="container">
-  <h2>Hello user at <%= @user.email %>!</h2>
+  <h2>Hello <%= @user.email %>!</h2>
 
-  <%= button_to 'Logout', logout_path, method: :delete %>
   <%= button_to 'Create a Survey', new_survey_path, method: :get %>
 
   <h3>Survey Results:</h3>
@@ -13,4 +12,9 @@
   <% Survey.all.each do |survey| %>
     <%= link_to "#{survey.title}", take_path(survey.id) %><br />
   <% end %>
+<br>
+<br>
+  <%= button_to 'Logout', logout_path, method: :delete %>
+
+
 </div>
