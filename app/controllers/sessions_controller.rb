@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: user_params[:email])
-    if @user != nil
+    if @user.authenticate(user_params[:password])
       session[:user_id] = @user.id
       redirect_to @user
     else
