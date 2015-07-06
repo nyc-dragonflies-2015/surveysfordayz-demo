@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
+      flash.alert = "die in a fire!"
       redirect_to root_path
     end
   end
