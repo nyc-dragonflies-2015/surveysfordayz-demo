@@ -8,6 +8,14 @@
 </head>
 
 <body>
+  <div class="messages">
+    <% if flash.alert %>
+      <p style="border: solid 1px red"><%= flash.alert %></p>
+    <% end %>
+    <% if flash.notice %>
+      <p style="color: green"><%= flash.notice %></p>
+    <% end %>
+  </div>
   <header><h1>
     <%if session[:user_id] %>
       <%= link_to "Surveyfordayz", user_path(session[:user_id]) %>
