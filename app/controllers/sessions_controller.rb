@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
-    @user= User.find_by(email: user_params[:email])
+    @user = User.find_by(email: user_params[:email])
     if @user != nil
       session[:user_id] = @user.id
       redirect_to @user
