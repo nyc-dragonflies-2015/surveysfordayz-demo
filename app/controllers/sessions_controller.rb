@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     @user= User.find_by(email: user_params[:email])
     if @user != nil
       session[:user_id] = @user.id
-      redirect_to "/users/#{@user.id}"
+      redirect_to @user
     else
       redirect_to root_path
     end
