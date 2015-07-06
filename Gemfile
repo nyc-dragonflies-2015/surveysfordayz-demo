@@ -45,4 +45,4 @@ gem 'pry-rails', :group => :development
 
 group :development, :test do
   gem "rspec-rails"
-end
+  gem "capybara" end
